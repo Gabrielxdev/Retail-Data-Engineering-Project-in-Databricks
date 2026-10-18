@@ -96,7 +96,12 @@ ORDER BY MEASURE(`Total Revenue`) DESC;
 
 ## Consumo
 
-- **Databricks Dashboard:** [`04_dashboard/Retail Analytics Dashboard.lvdash.json`](04_dashboard/Retail%20Analytics%20Dashboard.lvdash.json). Para usar, importe o arquivo em *Dashboards → Import*.
+- **Databricks Dashboard:** [`04_dashboard/Retail Analytics Dashboard.lvdash.json`](04_dashboard/Retail%20Analytics%20Dashboard.lvdash.json). Para usar, importe o arquivo em *Dashboards → Import*. O dashboard tem quatro páginas: Visão Geral, Análise de Produto, Análise de Cliente e Análise de Vendas.
+
+![Retail Analytics Dashboard: página Análise de Vendas](docs/dashboard_analise_vendas.png)
+
+*Página "Análise de Vendas": receita por canal e por modo de pagamento, transações por estágio da oportunidade, valor médio e desconto por modo de pagamento.*
+
 - **Genie Space "Retail Sales and Inventory Analytics":** agente para perguntas em linguagem natural sobre vendas, estoque, produtos, clientes e calendário.
 
 ![Genie Space](docs/genie_space.png)
