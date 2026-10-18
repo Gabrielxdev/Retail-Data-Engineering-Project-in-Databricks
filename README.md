@@ -1,10 +1,10 @@
-# 🛒 Retail Data Engineering Project no Databricks
+# Retail Data Engineering Project no Databricks
 
 Pipeline de dados de ponta a ponta para um cenário de **varejo**, construído no **Databricks** com arquitetura medalhão (**Bronze → Silver → Gold**). O projeto integra três fontes (PostgreSQL, Salesforce e Azure Blob Storage), aplica regras de qualidade com **Lakeflow Spark Declarative Pipelines**, publica um modelo dimensional governado pelo **Unity Catalog** e entrega os dados por uma **Metric View**, um **dashboard AI/BI** e um **Genie Space**, tudo orquestrado por um **Databricks Job**.
 
 ---
 
-## 📐 Arquitetura
+## Arquitetura
 
 ![Arquitetura do projeto](docs/arquitetura.png)
 
@@ -20,13 +20,13 @@ Pipeline de dados de ponta a ponta para um cenário de **varejo**, construído n
 
 ---
 
-## 🧰 Stack
+## Stack
 
 `Databricks` · `PySpark` · `Spark SQL` · `Lakeflow Connect` · `Auto Loader` · `Lakeflow Spark Declarative Pipelines` · `Delta Lake` · `Unity Catalog` · `Metric Views` · `AI/BI Dashboards` · `Genie` · `Databricks Jobs` · `Azure Blob Storage` · `PostgreSQL` · `Salesforce`
 
 ---
 
-## 🥉 Bronze: ingestão
+## Bronze: ingestão
 
 | Fonte | Ferramenta | Destino (`retail_q`) | Tabelas |
 |---|---|---|---|
@@ -39,7 +39,7 @@ Pipeline de dados de ponta a ponta para um cenário de **varejo**, construído n
 
 ---
 
-## 🥈 Silver: limpeza e qualidade
+## Silver: limpeza e qualidade
 
 Código em [`02_silver_pipeline/bronze_to_silver/`](02_silver_pipeline/bronze_to_silver/), escrito com `pyspark.pipelines` (`@dp.table`). As tabelas ficam em `retail_q.retail_silver`.
 
@@ -59,7 +59,7 @@ O que acontece nesta camada:
 
 ---
 
-## 🥇 Gold: modelo dimensional
+## Gold: modelo dimensional
 
 Tabelas e views em `retail_q.retail_gold`, organizadas em modelo estrela:
 
@@ -75,7 +75,7 @@ Notebooks: [`03_gold/02_gold_views.ipynb`](03_gold/02_gold_views.ipynb) e [`03_g
 
 ---
 
-## 📊 Camada semântica: Metric View
+## Camada semântica: Metric View
 
 [`03_gold/04_Metric_view.ipynb`](03_gold/04_Metric_view.ipynb) cria a Metric View **`retail_q.retail_semantic.retail_metrics`** (definida em YAML). Ela parte de `fact_sales` e faz join com `dim_product`, `dim_calendar` e `dim_customer`.
 
@@ -94,7 +94,7 @@ ORDER BY MEASURE(`Total Revenue`) DESC;
 
 ---
 
-## 📈 Consumo
+## Consumo
 
 - **Databricks Dashboard:** [`04_dashboard/Retail Analytics Dashboard.lvdash.json`](04_dashboard/Retail%20Analytics%20Dashboard.lvdash.json). Para usar, importe o arquivo em *Dashboards → Import*.
 - **Genie Space "Retail Sales and Inventory Analytics":** agente para perguntas em linguagem natural sobre vendas, estoque, produtos, clientes e calendário.
@@ -103,7 +103,7 @@ ORDER BY MEASURE(`Total Revenue`) DESC;
 
 ---
 
-## ⚙️ Orquestração
+## Orquestração
 
 O job **`RetailQ`** executa o fluxo completo:
 
@@ -113,13 +113,13 @@ O job **`RetailQ`** executa o fluxo completo:
 
 ---
 
-## 🗂️ Tabelas no Unity Catalog
+## Tabelas no Unity Catalog
 
 <img src="docs/tabelas_unity_catalog.png" alt="Tabelas no Unity Catalog" width="360">
 
 ---
 
-## 📁 Estrutura do repositório
+## Estrutura do repositório
 
 ```
 Retail-Data-Engineering-Project-in-Databricks/
@@ -146,7 +146,7 @@ Retail-Data-Engineering-Project-in-Databricks/
 
 ---
 
-## ▶️ Como reproduzir
+## Como reproduzir
 
 1. **Unity Catalog:** crie o catálogo `retail_q`, os schemas (`blob_bronze`, `postgres_bronze`, `salesforce_bronze`, `retail_silver`, `retail_gold`, `retail_semantic`) e o Volume `retail_q.volumes.blob_source`.
 2. **Ingestão:** configure os conectores do **Lakeflow Connect** para PostgreSQL e Salesforce. Envie os CSVs de transações para o Volume e rode `01_ingestion/blob_to_bronze.ipynb`.
@@ -158,12 +158,12 @@ Retail-Data-Engineering-Project-in-Databricks/
 
 ---
 
-## 🙏 Créditos
+## Créditos
 
 Projeto desenvolvido acompanhando o curso da **DataBeli** no YouTube: [assista ao vídeo](https://www.youtube.com/watch?v=QHwszePV3GY&t=4133s).
 
 ---
 
-## 👤 Autor
+## Autor
 
 **Gabriel Thiago Da Silva**: [GitHub @Gabrielxdev](https://github.com/Gabrielxdev)
